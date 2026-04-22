@@ -1,0 +1,16 @@
+{
+  "name": "AmbientGlass",
+  "description": "Premium glassmorphism theme with floating cluster, atmospheric glows, and Apple-style aesthetics.",
+  "preview": "preview.png",
+  "readme": "README.md",
+  "usercss": "user.css",
+  "schemes": "color.ini",
+  "include": ["theme.js"],
+  "authors": [
+    {
+      "name": "EROX",
+      "url": "https://github.com/itshe"
+    }
+  ],
+  "tags": ["glassmorphism", "premium", "minimal", "dark", "atmospheric"]
+}
