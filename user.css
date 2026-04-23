@@ -2103,3 +2103,78 @@ body:has([class*=\"marketplace\"]) .main-topBar-container {
     z-index: 100001 !important;
     position: relative !important;
 }
+
+/* --- 28. LISTENING STATS GLASS FUSION --- */
+/* Target the main container of the stats extension */
+[id*=\"stats\"], .stats-container, .listening-stats-main {
+    background: transparent !important;
+}
+
+/* Glass Cards for the stats entries */
+.stats-card, .stats-item, [class*=\"stats\"] [class*=\"card\"] {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    transition: transform 0.3s ease, background 0.3s ease !important;
+}
+
+.stats-card:hover, .stats-item:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    transform: translateY(-5px) !important;
+    border-color: var(--ag-accent-1) !important;
+}
+
+/* Typography & Colors */
+.stats-title, .stats-header h1 {
+    color: #fff !important;
+    text-shadow: 0 0 15px rgba(123, 95, 219, 0.5) !important;
+    letter-spacing: 1px !important;
+}
+
+/* Sidebar/Nav in Stats */
+.stats-nav {
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(20px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Buttons in Stats */
+.stats-button {
+    background: var(--ag-accent-1) !important;
+    border-radius: 50px !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 15px rgba(123, 95, 219, 0.4) !important;
+}
+
+/* --- 29. LISTENING STATS TEXT CONTRAST FIX --- */
+/* Fix for the Tabs (Today, 4 Weeks, etc.) */
+.stats-container button, 
+[class*=\"stats\"] button,
+.stats-tab-bar button {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* Specific fix for the active/hovered tab text */
+.stats-container button:hover,
+.stats-container button.active {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(255,255,255,0.5) !important;
+}
+
+/* Fix for the Green \"Next\"/\"Skip\" buttons (make text dark for contrast) */
+button[style*=\"background-color: rgb(30, 215, 96)\"],
+button[style*=\"background-color: #1ed760\"],
+.stats-button-primary {
+    color: #000000 !important;
+    font-weight: 800 !important;
+}
+
+/* General button text safety */
+.stats-container .button-primary, 
+.stats-container .button-secondary {
+    color: #ffffff !important;
+}

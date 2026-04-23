@@ -47,17 +47,22 @@ console.log('>> [AmbientGlass] Script Triggered! <<');
     const el = document.querySelector(".main-topBar-container");
     if (!el) return;
     
-    // AUSNAHME: Wenn wir im Marketplace sind, lassen wir die Topbar am Leben!
-    if (Spicetify.Platform.History.location.pathname.includes("marketplace")) {
+    // RADIKALE AUSNAHME: Wenn wir im Marketplace sind, zeigen wir ALLES
+    const path = Spicetify.Platform.History.location.pathname;
+    const isMarketplace = path.includes("marketplace") || !!document.querySelector('.marketplace-header') || !!document.querySelector('#marketplace-extension-button');
+
+    if (isMarketplace) {
         el.style.setProperty("opacity", "1", "important");
         el.style.setProperty("visibility", "visible", "important");
-        el.style.setProperty("background", "transparent", "important");
+        el.style.setProperty("display", "flex", "important");
+        el.style.setProperty("pointer-events", "auto", "important");
         return;
     }
 
     el.style.setProperty("background", "transparent", "important");
     el.style.setProperty("box-shadow", "none", "important");
     el.style.setProperty("opacity", "0", "important");
+    el.style.setProperty("pointer-events", "none", "important");
   }
 
   function killResidues() {
@@ -210,49 +215,6 @@ console.log('>> [AmbientGlass] Script Triggered! <<');
     `;
     document.body.appendChild(s);
     
-    let soundPlayed = false;
-    async function playStartupSound() {
-      if (soundPlayed) return;
-      
-      const sources = [
-        'xpui://theme/assets/startup.mp3',
-        '/theme/assets/startup.mp3',
-        'https://xpui.app.spotify.com/theme/assets/startup.mp3',
-        'https://raw.githubusercontent.com/itshe/AmbientGlass/main/assets/startup.mp3'
-      ];
-
-      for (const url of sources) {
-        if (soundPlayed) break;
-        try {
-          // Versuche per Fetch (umgeht oft Pfad-Sperren)
-          const response = await fetch(url);
-          const blob = await response.blob();
-          const blobUrl = URL.createObjectURL(blob);
-          const audio = new Audio(blobUrl);
-          audio.volume = 0.6;
-          await audio.play();
-          soundPlayed = true;
-          Spicetify.showNotification("AmbientGlass: Sound OK 🔊");
-          break;
-        } catch (e) {
-          // Wenn Fetch fehlschlägt, direkt probieren
-          try {
-            const audio = new Audio(url);
-            audio.volume = 0.6;
-            await audio.play();
-            soundPlayed = true;
-            Spicetify.showNotification("AmbientGlass: Sound OK 🔊");
-            break;
-          } catch (err) {
-            console.log(`Quelle fehlgeschlagen: ${url}`);
-          }
-        }
-      }
-    }
-
-    // Erster Klick Trigger für Sound (Autoplay-Bypass)
-    window.addEventListener('click', () => playStartupSound(), { once: true });
-    setTimeout(() => playStartupSound(), 300);
     setTimeout(() => s.classList.add('fade-out'), 2500);
     setTimeout(() => { s.remove(); triggerEntrance(); }, 3000);
   }
