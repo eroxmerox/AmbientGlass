@@ -5,11 +5,11 @@
   "readme": "README.md",
   "usercss": "user.css",
   "schemes": "color.ini",
-  "include": ["https://raw.githubusercontent.com/eroxmerox/AmbientGlass-/main/theme.js"],
+  "include": ["theme.js"],
   "authors": [
     {
       "name": "EROX",
-      "url": "https://github.com/eroxmerox"
+      "url": "https://github.com/itshe"
     }
   ],
   "tags": ["glassmorphism", "premium", "minimal", "dark", "atmospheric"]
