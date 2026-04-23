@@ -2178,3 +2178,23 @@ button[style*=\"background-color: #1ed760\"],
 .stats-container .button-secondary {
     color: #ffffff !important;
 }
+
+/* --- 30. UNIVERSAL MARKETPLACE BUTTON FIX --- */
+/* Dieser Fix erkennt den Marketplace an seiner Struktur, nicht nur an der ID */
+body:has(.marketplace-header) .main-topBar-container,
+body:has([id*=\"marketplace\"]) .main-topBar-container,
+body:has(.marketplace-tabBar) .main-topBar-container,
+body:has([class*=\"marketplace\"]) .main-topBar-container {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    pointer-events: auto !important;
+    background: transparent !important;
+}
+
+/* Klickbarkeit erzwingen */
+.main-topBar-container .main-topBar-topbarContentWrapper,
+.marketplace-tabBar {
+    pointer-events: auto !important;
+    z-index: 999999 !important;
+}
