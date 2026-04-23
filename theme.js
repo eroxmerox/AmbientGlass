@@ -662,32 +662,41 @@ console.log('>> [AmbientGlass] Script Triggered! <<');
     observer.observe(sidebar, { childList: true, subtree: true });
   }
 
-  function fixMarketplaceDropdown() {
+    function fixMarketplaceDropdown() {
     const path = Spicetify.Platform.History.location.pathname;
-    if (!path.includes('marketplace')) return;
+    if (!path.includes("marketplace")) return;
 
-    const select = document.querySelector('.marketplace-header select, .marketplace-header__dropdown');
-    if (!select || document.getElementById('ag-marketplace-tabs')) return;
+    const select = document.querySelector(".marketplace-header select, .marketplace-header__dropdown select, .marketplace-header__dropdown");
+    if (!select || document.getElementById("ag-marketplace-tabs")) return;
 
-    const container = select.parentElement;
-    if (!container) return;
+    select.style.setProperty("display", "none", "important");
 
-    select.style.setProperty('display', 'none', 'important');
-
-    const tabs = document.createElement('div');
-    tabs.id = 'ag-marketplace-tabs';
+    const tabs = document.createElement("div");
+    tabs.id = "ag-marketplace-tabs";
     
-    Array.from(select.options).forEach(opt => {
-      const btn = document.createElement('button');
-      btn.className = 'ag-market-tab-btn';
-      if (select.value === opt.value) btn.classList.add('active');
+    Array.from(select.options || []).forEach(opt => {
+      const btn = document.createElement("button");
+      btn.className = "ag-market-tab-btn";
+      if (select.value === opt.value) btn.classList.add("active");
       btn.innerText = opt.text;
       
       btn.onclick = (e) => {
         e.preventDefault();
         e.stopPropagation();
         select.value = opt.value;
-        select.dispatchEvent(new Event('change', { bubbles: true }));
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        setTimeout(fixMarketplaceDropdown, 50);
+      };
+      tabs.appendChild(btn);
+    });
+
+    const header = document.querySelector(".marketplace-header");
+    if (header) {
+        const searchContainer = header.querySelector(".marketplace-header__search-container");
+        if (searchContainer) header.insertBefore(tabs, searchContainer);
+        else header.appendChild(tabs);
+    }
+  }));
         
         // Force update visual state
         setTimeout(() => {
@@ -1041,5 +1050,6 @@ console.log('>> [AmbientGlass] Script Triggered! <<');
   window.AmbientGlass = { safeNavigate, closeLibraryPanel };
   init();
 })();
+
 
 
