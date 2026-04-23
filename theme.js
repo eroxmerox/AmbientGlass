@@ -1,5 +1,5 @@
 console.log('>> [AmbientGlass] Script Triggered! <<');
-// AmbientGlass — theme.js (v13.0) ✦ ULTIMATE BUILD
+// AmbientGlass — theme.js (v14.0) ✦ ULTIMATE BUILD
 // • Branding: "AmbientGlass" added to Startup
 // • Entrance: Soft Drop & Zoom
 // • Layout: 50/50 Split
@@ -8,7 +8,7 @@ console.log('>> [AmbientGlass] Script Triggered! <<');
 
 (function AmbientGlass() {
   'use strict';
-  console.log("AmbientGlass v13.0: ULTIMATE BUILD. Created by EROX");
+  console.log("AmbientGlass v14.0: ULTIMATE BUILD. Created by EROX");
 
   if (!Spicetify?.Player || !Spicetify?.Platform) {
     setTimeout(AmbientGlass, 300);
@@ -211,7 +211,7 @@ console.log('>> [AmbientGlass] Script Triggered! <<');
         <div class="ag-splash-title">AmbientGlass</div>
       </div>
       <div class="ag-splash-footer">made by EROX</div>
-      <div style="position: absolute; bottom: 20px; left: 20px; color: rgba(255,255,255,0.15); font-size: 10px; letter-spacing: 1px; font-family: monospace;">BUILD 13.0.ULTIMATE</div>
+      <div style="position: absolute; bottom: 20px; left: 20px; color: rgba(255,255,255,0.15); font-size: 10px; letter-spacing: 1px; font-family: monospace;">BUILD 14.0.ULTIMATE</div>
     `;
     document.body.appendChild(s);
     
