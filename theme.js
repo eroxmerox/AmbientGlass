@@ -220,7 +220,7 @@
         'xpui://theme/assets/startup.mp3',
         '/theme/assets/startup.mp3',
         'https://xpui.app.spotify.com/theme/assets/startup.mp3',
-        'https://raw.githubusercontent.com/eroxmerox/AmbientGlass-/main/assets/startup.mp3'
+        'https://raw.githubusercontent.com/itshe/AmbientGlass/main/assets/startup.mp3'
       ];
 
       for (const url of sources) {
@@ -676,7 +676,10 @@
     const tabs = document.createElement('div');
     tabs.id = 'ag-marketplace-tabs';
     
-    Array.from(select.options).forEach(opt => {
+    // Sort options to have Themes and Extensions first
+    const options = Array.from(select.options);
+    
+    options.forEach(opt => {
       const btn = document.createElement('button');
       btn.className = 'ag-market-tab-btn';
       if (select.value === opt.value) btn.classList.add('active');
@@ -687,13 +690,28 @@
         e.stopPropagation();
         select.value = opt.value;
         select.dispatchEvent(new Event('change', { bubbles: true }));
-        tabs.querySelectorAll('.ag-market-tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        
+        // Visual feedback
+        setTimeout(() => {
+            const newTabs = document.getElementById('ag-marketplace-tabs');
+            if (newTabs) {
+                newTabs.querySelectorAll('.ag-market-tab-btn').forEach(b => {
+                    b.classList.remove('active');
+                    if (b.innerText === opt.text) b.classList.add('active');
+                });
+            }
+        }, 50);
       };
       tabs.appendChild(btn);
     });
 
-    container.appendChild(tabs);
+    const header = document.querySelector('.marketplace-header');
+    if (header) {
+        // Try to insert after the search bar or title
+        const search = header.querySelector('.marketplace-header__search-container');
+        if (search) header.insertBefore(tabs, search.nextSibling);
+        else header.appendChild(tabs);
+    }
   }
 
   // ── SETTINGS & PRIVACY ──
