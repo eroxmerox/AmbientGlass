@@ -5,7 +5,9 @@
   "readme": "README.md",
   "usercss": "user.css",
   "schemes": "color.ini",
-  "extension": "theme.js",
+  "include": [
+    "https://raw.githubusercontent.com/eroxmerox/AmbientGlass/main/theme.js"
+  ],
   "authors": [
     {
       "name": "EROX",
