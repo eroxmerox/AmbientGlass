@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>✨ AmbientGlass ✦ Premium Spicetify Theme ✨</h1>
+  <h1> AmbientGlass Premium Spicetify Theme </h1>
   <p><i>A state-of-the-art Spicetify theme inspired by modern glassmorphism and Apple-style aesthetics.</i></p>
 
   [![Spicetify](https://img.shields.io/badge/Spicetify-Theme-success?style=for-the-badge&logo=spotify)](#)
@@ -17,7 +17,7 @@ AmbientGlass transforms your Spotify into a vibrant, atmospheric experience with
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Floating Home Cluster**: A sleek, minimal navigation dock that elegantly expands on hover.
 - **Centered Search Experience**: A cinematic search bar with ring animations that docks smoothly on scroll.
@@ -29,7 +29,7 @@ AmbientGlass transforms your Spotify into a vibrant, atmospheric experience with
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Option A: Marketplace (Recommended)
 1. Make sure you have [Spicetify](https://spicetify.app/) installed.
@@ -55,12 +55,12 @@ AmbientGlass transforms your Spotify into a vibrant, atmospheric experience with
 
 ---
 
-## 🔄 Updating & Uninstalling
+##  Updating & Uninstalling
 
 If you used the manual or automated installation method, you can use the provided batch scripts (`update_ambientglass.bat` and `uninstall_ambientglass.bat`) to easily update the theme to the newest version or completely remove it.
 
 ---
 
-## 🎨 Credits
+##  Credits
 
-Made with ♥ by **EROX**.
+Made by **EROX**.
