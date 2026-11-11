@@ -87,10 +87,5 @@ Do not remove an unrelated extension that happens to have the same filename.
 
 To install the exact contents of a tagged release, download that tag and run **install.bat**, rather than update.bat.
 
-## Publishing
-
-See [PUBLISH.md](PUBLISH.md) for the 2.0.0 upload and tag checklist, and [VALIDATION.md](VALIDATION.md) for the checks and their limits.
-
-## Credits and license
 
 Created by **EROX**. [MIT license](LICENSE).
