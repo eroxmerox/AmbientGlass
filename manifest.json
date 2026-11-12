@@ -8,7 +8,7 @@
   "usercss": "user.css",
   "schemes": "color.ini",
   "include": [
-    "https://eroxmerox.github.io/AmbientGlass/theme.js"
+    "https://cdn.jsdelivr.net/gh/eroxmerox/AmbientGlass@main/theme.js"
   ],
   "authors": [
     {
